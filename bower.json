@@ -1,0 +1,17 @@
+{
+  "name": "bootstrap-nav-wizard",
+  "version": "0.0.1",
+  "homepage": "https://github.com/acornejo/bootstrap-nav-wizard",
+  "authors": [
+    "Alex Cornejo <acornejo@gmail.com>"
+  ],
+  "description": "Bootstrap nav wizard extension",
+  "dependencies": {
+    "bootstrap": "*"
+  },
+  "ignore": [
+    "bower_components/",
+    "node_modules/",
+    "package.json"
+  ]
+}

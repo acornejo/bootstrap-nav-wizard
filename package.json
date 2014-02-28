@@ -1,0 +1,18 @@
+{
+  "name": "bootstrap-nav-wizard",
+  "version": "0.0.1",
+  "author": "Alex Cornejo <acornejo@gmail.com>",
+  "main": "bootstrap-nav-wizard.css",
+  "devDependencies": {
+    "less": "*"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acornejo/bootstrap-nav-wizard.git",
+    "url": "https://github.com/acornejo/bootstrap-nav-wizard",
+  },
+  "scripts": {
+    "prepublish": "./node_modules/.bin/lessc bootstrap-nav-wizard.less > bootstrap-nav-wizard.css; ./node_modules/.bin/lessc -x bootstrap-nav-wizard.less > bootstrap-nav-wizard.min.css"
+  }
+}

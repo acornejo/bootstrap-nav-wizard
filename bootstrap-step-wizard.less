@@ -1,0 +1,120 @@
+@import 'bower_components/bootstrap/less/variables.less';
+
+// Nav Wizard
+// -------------------------
+.nav-wizard {
+  > li {
+    float: left;
+
+    > a {
+        position: relative;
+        background-color: @nav-link-hover-bg;
+    }
+    &:not(:first-child) > a {
+        padding-left: 35px;
+
+        &:before {
+            width: 0px;
+            height: 0px;
+            border-top: 20px inset transparent;
+            border-bottom: 20px inset transparent;
+            border-left: 20px solid #fff;
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+        }
+    }
+    &:first-child > a {
+        border-top-left-radius: @nav-pills-border-radius;
+        border-bottom-left-radius: @nav-pills-border-radius;
+    }
+    &:not(:last-child) > a {
+        margin-right: 6px;
+
+        &:after {
+            width: 0px;
+            height: 0px;
+            border-top: 20px inset transparent;
+            border-bottom: 20px inset transparent;
+            border-left: 20px solid @nav-link-hover-bg;
+            position: absolute;
+            content: "";
+            top: 0;
+            right: -20px;
+            z-index: 2;
+        }
+    }
+    &:last-child > a {
+        border-top-right-radius: @nav-pills-border-radius;
+        border-bottom-right-radius: @nav-pills-border-radius;
+    }
+    &:hover {
+        > a {
+            background-color: darken(@nav-link-hover-bg, 10%);
+
+            &:before {
+                border-right-color: darken(@nav-link-hover-bg, 10%);
+            }
+            &:after {
+                border-left-color: darken(@nav-link-hover-bg, 10%);
+            }   
+
+            &.disabled {
+                a {
+                    background-color: darken(@nav-link-hover-bg, 10%);
+                }
+
+                &:before {
+                    border-right-color: darken(@nav-link-hover-bg, 10%);
+                }
+
+                &:after {
+                    border-left-color: darken(@nav-link-hover-bg, 10%);
+                }
+            }
+        }
+    }
+
+
+// Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @nav-pills-active-link-hover-color;
+        background-color: @nav-pills-active-link-hover-bg;
+      }
+
+      &:after {
+        border-left-color: @nav-pills-active-link-hover-bg;
+      }
+    }
+
+
+
+  }
+}
+
+.nav-wizard.nav-justified {
+    > li {
+        float: none;
+
+        > a {
+            padding: @nav-link-padding;
+        }
+    }
+
+    // Small screens size, remove the "arrows" and just show it like stacked pills.
+    @media (max-width: @screen-sm-min) {
+        > li > a {
+            border-radius: @nav-pills-border-radius;
+            margin-right: 0;
+
+            &:before,
+            &:after {
+              border: none !important;
+            }
+        }
+    }
+}

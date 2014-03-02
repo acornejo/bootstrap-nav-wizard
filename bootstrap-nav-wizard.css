@@ -60,8 +60,15 @@
 .nav-wizard > li.active > a:after {
   border-left-color: #428bca;
 }
-.nav-wizard > li.active ~ li > a {
+.nav-wizard > li.disabled > a {
   color: #999999;
+}
+.nav-wizard > li.disabled > a:hover,
+.nav-wizard > li.disabled > a:focus {
+  color: #999999;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: not-allowed;
 }
 .nav-wizard.nav-justified > li {
   float: none;

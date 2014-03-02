@@ -5,6 +5,9 @@
   position: relative;
   background-color: #eeeeee;
 }
+.nav-wizard > li > a .badge {
+  margin-left: 3px;
+}
 .nav-wizard > li:not(:first-child) > a {
   padding-left: 34px;
 }
@@ -59,6 +62,10 @@
 }
 .nav-wizard > li.active > a:after {
   border-left-color: #428bca;
+}
+.nav-wizard > li.active > a .badge {
+  color: #428bca;
+  background-color: #ffffff;
 }
 .nav-wizard > li.disabled > a {
   color: #999999;

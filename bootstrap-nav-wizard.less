@@ -23,6 +23,10 @@
     > a {
       position: relative;
       background-color: @nav-link-hover-bg;
+
+      .badge {
+        margin-left: 3px;
+      }
     }
     &:not(:first-child) > a {
       padding-left: 2*@arrow-size - @arrow-sep;
@@ -70,6 +74,11 @@
 
       &:after {
         border-left-color: @nav-pills-active-link-hover-bg;
+      }
+
+      .badge {
+        color: @badge-active-color;
+        background-color: @badge-active-bg;
       }
     }
 

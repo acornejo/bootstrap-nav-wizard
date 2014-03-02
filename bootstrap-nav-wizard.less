@@ -1,5 +1,19 @@
 @import 'bower_components/bootstrap/less/variables.less';
 
+@arrow-size: 20px;
+@arrow-sep: 6px;
+
+.arrow(@color) {
+  width: 0px;
+  height: 0px;
+  border-top: @arrow-size inset transparent;
+  border-bottom: @arrow-size inset transparent;
+  border-left: @arrow-size solid @color;
+  position: absolute;
+  content: "";
+  top: 0;
+}
+
 // Nav Wizard
 // -------------------------
 .nav-wizard {
@@ -7,77 +21,45 @@
     float: left;
 
     > a {
-        position: relative;
-        background-color: @nav-link-hover-bg;
+      position: relative;
+      background-color: @nav-link-hover-bg;
     }
     &:not(:first-child) > a {
-        padding-left: 35px;
+      padding-left: 2*@arrow-size - @arrow-sep;
 
-        &:before {
-            width: 0px;
-            height: 0px;
-            border-top: 20px inset transparent;
-            border-bottom: 20px inset transparent;
-            border-left: 20px solid #fff;
-            position: absolute;
-            content: "";
-            top: 0;
-            left: 0;
-        }
-    }
-    &:first-child > a {
-        border-top-left-radius: @nav-pills-border-radius;
-        border-bottom-left-radius: @nav-pills-border-radius;
+      &:before {
+        .arrow(#fff);
+        left: 0;
+      }
     }
     &:not(:last-child) > a {
-        margin-right: 6px;
+      margin-right: @arrow-sep;
 
-        &:after {
-            width: 0px;
-            height: 0px;
-            border-top: 20px inset transparent;
-            border-bottom: 20px inset transparent;
-            border-left: 20px solid @nav-link-hover-bg;
-            position: absolute;
-            content: "";
-            top: 0;
-            right: -20px;
-            z-index: 2;
-        }
+      &:after {
+        .arrow(@nav-link-hover-bg);
+        right: -@arrow-size;
+        z-index: 2;
+      }
+    }
+    &:first-child > a {
+      border-top-left-radius: @nav-pills-border-radius;
+      border-bottom-left-radius: @nav-pills-border-radius;
     }
     &:last-child > a {
-        border-top-right-radius: @nav-pills-border-radius;
-        border-bottom-right-radius: @nav-pills-border-radius;
-    }
-    &:hover {
-        > a {
-            background-color: darken(@nav-link-hover-bg, 10%);
-
-            &:before {
-                border-right-color: darken(@nav-link-hover-bg, 10%);
-            }
-            &:after {
-                border-left-color: darken(@nav-link-hover-bg, 10%);
-            }   
-
-            &.disabled {
-                a {
-                    background-color: darken(@nav-link-hover-bg, 10%);
-                }
-
-                &:before {
-                    border-right-color: darken(@nav-link-hover-bg, 10%);
-                }
-
-                &:after {
-                    border-left-color: darken(@nav-link-hover-bg, 10%);
-                }
-            }
-        }
+      border-top-right-radius: @nav-pills-border-radius;
+      border-bottom-right-radius: @nav-pills-border-radius;
     }
 
+    &:hover > a {
+      background-color: darken(@nav-link-hover-bg, 10%);
+      &:before {
+        border-right-color: darken(@nav-link-hover-bg, 10%);
+      }
+      &:after {
+        border-left-color: darken(@nav-link-hover-bg, 10%);
+      }
+    }
 
-// Active state
     &.active > a {
       &,
       &:hover,
@@ -91,8 +73,35 @@
       }
     }
 
+    &.disabled > a {
+      color: @nav-disabled-link-color;
 
+      &:hover,
+      &:focus {
+        color: @nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: not-allowed;
+      }
+    }
 
+    // &.active ~ li > a {
+    //   color: @nav-disabled-link-color;
+    //   &:hover,
+    //   &:focus {
+    //     color: @nav-disabled-link-hover-color;
+    //     text-decoration: none;
+    //     background-color: transparent;
+    //     cursor: not-allowed;
+    //   }
+    //     // background-color: darken(@nav-link-hover-bg, 20%);
+    //     // &:before {
+    //     //     border-right-color: darken(@nav-link-hover-bg, 20%);
+    //     // }
+    //     // &:after {
+    //     //     border-left-color: darken(@nav-link-hover-bg, 20%);
+    //     // }
+    // }
   }
 }
 

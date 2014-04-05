@@ -7,7 +7,7 @@
 }
 .nav-wizard > li > a .badge {
   margin-left: 3px;
-  color: #ffffff;
+  color: #eeeeee;
   background-color: #428bca;
 }
 .nav-wizard > li:not(:first-child) > a {

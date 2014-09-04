@@ -15,6 +15,7 @@
 }
 
 // Nav Wizard
+// From github.com/acornejo/bootstrap-nav-wizard
 // -------------------------
 .nav-wizard {
   > li {
@@ -56,13 +57,24 @@
       border-bottom-right-radius: @nav-pills-border-radius;
     }
 
-    &:hover > a {
+    &.done:hover > a, &:hover > a {
       background-color: darken(@nav-link-hover-bg, 10%);
       &:before {
         border-right-color: darken(@nav-link-hover-bg, 10%);
       }
       &:after {
         border-left-color: darken(@nav-link-hover-bg, 10%);
+      }
+    }
+
+    &.done > a {
+      background-color: darken(@nav-link-hover-bg, 5%);
+      
+      &:before {
+        border-right-color: darken(@nav-link-hover-bg, 5%);
+      }
+      &:after {
+        border-left-color: darken(@nav-link-hover-bg, 5%);
       }
     }
 
@@ -89,10 +101,16 @@
 
       &:hover,
       &:focus {
-        color: @nav-disabled-link-hover-color;
+        color: @nav-disabled-link-color;
         text-decoration: none;
-        background-color: transparent;
-        cursor: not-allowed;
+        background-color: @nav-link-hover-bg;
+        cursor: default;
+      }
+      &:before {
+        border-right-color: @nav-link-hover-bg;
+      }
+      &:after {
+        border-left-color: @nav-link-hover-bg;
       }
     }
 

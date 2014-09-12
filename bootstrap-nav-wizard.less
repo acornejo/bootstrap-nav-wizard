@@ -2,6 +2,15 @@
 
 @arrow-size: 20px;
 @arrow-sep: 6px;
+@wizard-border: #fff;
+@wizard-background: @nav-link-hover-bg;
+@wizard-active-background: @nav-pills-active-link-hover-bg;
+@wizard-active-color: @nav-pills-active-link-hover-color;
+@wizard-hover-background: darken(@wizard-background, 10%);
+@wizard-done-background: darken(@wizard-background, 5%);
+@wizard-border-radius: @nav-pills-border-radius;
+@wizard-disabled-color: @nav-disabled-link-color;
+@wizard-padding: @nav-link-padding;
 
 .arrow(@color) {
   width: 0px;
@@ -18,16 +27,18 @@
 // From github.com/acornejo/bootstrap-nav-wizard
 // -------------------------
 .nav-wizard {
+  border: @wizard-border;
+	
   > li {
     float: left;
 
     > a {
       position: relative;
-      background-color: @nav-link-hover-bg;
+      background-color: @wizard-background;
 
       .badge {
         margin-left: 3px;
-        color: @nav-link-hover-bg;
+        color: @wizard-background;
         background-color: @badge-active-color;
       }
     }
@@ -35,7 +46,7 @@
       padding-left: 2*@arrow-size - @arrow-sep;
 
       &:before {
-        .arrow(#fff);
+        .arrow(@wizard-border);
         left: 0;
       }
     }
@@ -43,38 +54,38 @@
       margin-right: @arrow-sep;
 
       &:after {
-        .arrow(@nav-link-hover-bg);
+        .arrow(@wizard-background);
         right: -@arrow-size;
         z-index: 2;
       }
     }
     &:first-child > a {
-      border-top-left-radius: @nav-pills-border-radius;
-      border-bottom-left-radius: @nav-pills-border-radius;
+      border-top-left-radius: @wizard-border-radius;
+      border-bottom-left-radius: @wizard-border-radius;
     }
     &:last-child > a {
-      border-top-right-radius: @nav-pills-border-radius;
-      border-bottom-right-radius: @nav-pills-border-radius;
+      border-top-right-radius: @wizard-border-radius;
+      border-bottom-right-radius: @wizard-border-radius;
     }
 
     &.done:hover > a, &:hover > a {
-      background-color: darken(@nav-link-hover-bg, 10%);
+      background-color: @wizard-hover-background;
       &:before {
-        border-right-color: darken(@nav-link-hover-bg, 10%);
+        border-right-color: @wizard-hover-background;
       }
       &:after {
-        border-left-color: darken(@nav-link-hover-bg, 10%);
+        border-left-color: @wizard-hover-background;
       }
     }
 
     &.done > a {
-      background-color: darken(@nav-link-hover-bg, 5%);
+      background-color: @wizard-done-background;
       
       &:before {
-        border-right-color: darken(@nav-link-hover-bg, 5%);
+        border-right-color: @wizard-done-background;
       }
       &:after {
-        border-left-color: darken(@nav-link-hover-bg, 5%);
+        border-left-color: @wizard-done-background;
       }
     }
 
@@ -82,12 +93,12 @@
       &,
       &:hover,
       &:focus {
-        color: @nav-pills-active-link-hover-color;
-        background-color: @nav-pills-active-link-hover-bg;
+        color: @wizard-active-color;
+        background-color: @wizard-active-background;
       }
 
       &:after {
-        border-left-color: @nav-pills-active-link-hover-bg;
+        border-left-color: @wizard-active-background;
       }
 
       .badge {
@@ -97,25 +108,25 @@
     }
 
     &.disabled > a {
-      color: @nav-disabled-link-color;
+      color: @wizard-disabled-color;
 
       &:hover,
       &:focus {
-        color: @nav-disabled-link-color;
+        color: @wizard-disabled-color;
         text-decoration: none;
-        background-color: @nav-link-hover-bg;
+        background-color: @wizard-background;
         cursor: default;
       }
       &:before {
-        border-right-color: @nav-link-hover-bg;
+        border-right-color: @wizard-background;
       }
       &:after {
-        border-left-color: @nav-link-hover-bg;
+        border-left-color: @wizard-background;
       }
     }
 
     // &.active ~ li > a {
-    //   color: @nav-disabled-link-color;
+    //   color: @wizard-disabled-color;
     //   &:hover,
     //   &:focus {
     //     color: @nav-disabled-link-hover-color;
@@ -123,12 +134,12 @@
     //     background-color: transparent;
     //     cursor: not-allowed;
     //   }
-    //     // background-color: darken(@nav-link-hover-bg, 20%);
+    //     // background-color: darken(@wizard-background, 20%);
     //     // &:before {
-    //     //     border-right-color: darken(@nav-link-hover-bg, 20%);
+    //     //     border-right-color: darken(@wizard-background, 20%);
     //     // }
     //     // &:after {
-    //     //     border-left-color: darken(@nav-link-hover-bg, 20%);
+    //     //     border-left-color: darken(@wizard-background, 20%);
     //     // }
     // }
   }
@@ -139,14 +150,14 @@
         float: none;
 
         > a {
-            padding: @nav-link-padding;
+            padding: @wizard-padding;
         }
     }
 
     // Small screens size, remove the "arrows" and just show it like stacked pills.
     @media (max-width: @screen-sm-min) {
         > li > a {
-            border-radius: @nav-pills-border-radius;
+            border-radius: @wizard-border-radius;
             margin-right: 0;
 
             &:before,

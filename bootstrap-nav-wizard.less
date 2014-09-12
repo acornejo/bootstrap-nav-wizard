@@ -2,7 +2,8 @@
 
 @arrow-size: 20px;
 @arrow-sep: 6px;
-@wizard-border: #fff;
+@wizard-border: solid 0px @wizard-border-color;
+@wizard-border-color: #fff;
 @wizard-background: @nav-link-hover-bg;
 @wizard-active-background: @nav-pills-active-link-hover-bg;
 @wizard-active-color: @nav-pills-active-link-hover-color;
@@ -46,7 +47,7 @@
       padding-left: 2*@arrow-size - @arrow-sep;
 
       &:before {
-        .arrow(@wizard-border);
+        .arrow(@wizard-border-color);
         left: 0;
       }
     }

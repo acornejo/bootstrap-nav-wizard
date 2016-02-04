@@ -1,3 +1,6 @@
+.nav-wizard {
+	line-height: 30px;
+}
 .nav-wizard > li {
   float: left;
 }
